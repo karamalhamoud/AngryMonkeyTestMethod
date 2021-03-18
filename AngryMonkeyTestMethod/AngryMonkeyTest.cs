@@ -8,6 +8,9 @@ namespace AngryMonkey
 
         public bool HasAccess(AccessRight[] userAccessRights, AccessRight requiredAccessRight)
         {
+            if (userAccessRights.Contains(AccessRight.Full) || userAccessRights.Length >= 4)
+                return true;
+
             foreach (var right in userAccessRights)
             {
                 if (right == requiredAccessRight)
